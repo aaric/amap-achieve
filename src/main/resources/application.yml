@@ -1,0 +1,9 @@
+# Spring settings
+spring:
+  profiles:
+    active: dev
+
+# AMap settings
+amap:
+  key: ${AMAP_KEY}
+  host: ${AMAP_HOST:restapi.amap.com}
