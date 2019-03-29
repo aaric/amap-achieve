@@ -1,0 +1,45 @@
+group 'com.cooggo'
+version '0.1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    /*jcenter()*/
+    maven { url 'https://maven.aliyun.com/repository/public' }
+}
+
+dependencies {
+    compile("org.apache.commons:commons-lang3:3.+")
+    compile("com.alibaba:fastjson:1.2.+")
+
+    compile("org.springframework.boot:spring-boot-starter:2.1.+")
+
+    testCompile("org.springframework.boot:spring-boot-starter-test:2.1.+")
+}
+
+buildscript {
+    repositories {
+        /*jcenter()*/
+        maven { url 'https://maven.aliyun.com/repository/public' }
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.1.+"
+    }
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+    options.compilerArgs << "-Xlint:unchecked"
+}
+
+compileTestJava {
+    options.encoding = "UTF-8"
+    options.compilerArgs << "-Xlint:unchecked"
+}
+
+defaultTasks "assemble"
